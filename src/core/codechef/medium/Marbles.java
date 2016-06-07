@@ -31,13 +31,35 @@ package core.codechef.medium;
  *  475020
  */
 
+/**
+ * http://math.stackexchange.com/questions/686/combinations-of-selecting-n-objects-with-k-different-types
+ * 
+ * http://stackoverflow.com/questions/11809502/which-is-better-way-to-calculate-ncr
+ * 
+ * Notes:
+ * 1. The dynamic way of 2D array will run out of memory.
+ * 2. Starts and Bars method for combination.
+ * 3. Test with:
+ * 	Input:
+ * 4
+ * 11 10
+ * 13 10
+ * 10 10
+ * 30 7
+ * 
+ * 	Output:
+ * 10
+ * 220
+ * 1
+ * 475020
+ * 
+ */
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Marbles {
-	
 	public static void main(String[] args)throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine().trim());
@@ -48,22 +70,28 @@ public class Marbles {
 			long N = Long.parseLong(arr[0]);
 			Long K = Long.parseLong(arr[1]);
 			
-			
+			//Rohit wants to have at least one marble of each color
 			N = N - K;
 			System.out.println( calculateCombination(N + K - 1, K - 1) );
 		}
 	}
 	
-	public static long calculateCombination(long N, long R) {
-		if(R > N / 2) 
-			R = N - R; // because C(n, r) == C(n, n - r)
+	/**
+	 * 
+	 * @param n
+	 * @param r
+	 * 
+	 * @return value of nCr
+	 */
+	public static long calculateCombination(long n, long r) {
+		if(r > n / 2) 
+			r = n - r; // because C(n, r) == C(n, n - r)
 	    long answer = 1;
-	    
-	    for(int i = 1; i <= R; i++) {
-	        answer *= N - R + i;
+	    // nCr = nC(r-1) * (n - r + 1) / r.
+	    for(int i = 1; i <= r; i++) {
+	        answer *= n - r + i;
 	        answer /= i;
 	    }
-	    return answer;
-		
+	    return answer;	
 	}
 }
