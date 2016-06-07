@@ -34,7 +34,22 @@ package core.codechef.medium;
  *  
  */
 
-
+/**
+ * here 1000000000 is the largest number to test
+ * so generate all prime numbers below sqrt(1000000000)
+ * Idea:
+ * To check if a number 'x' is prime, only divide it by prime numbers
+ * less than sqrt(x)
+ * There's no point in checking for divisibility against non-primes, 
+ * since if x divisible by non-prime y, then there exists a prime p < y 
+ * such that x divisible by p, since we can write y as a product of primes. 
+ * For example, 12 is divisible by 6, but 6 = 2 * 3, which means that 12 is also divisible by 2 or 3.
+ * 
+ * http://stackoverflow.com/questions/3220907/efficient-algorithm-to-get-primes-between-two-large-numbers
+ * 
+ * @author Anurag Rai
+ * 
+ */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -48,21 +63,19 @@ public class Prime1 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine().trim());
 		
-		// here 1000000000 is the largest number to test
-		// so generate all prime numbers below sqrt(1000000000)
-		//
+		//store all prime numbers less than sqrt(1000000000). Size unknown but less than sqrt(1000000000).
 		prime_numbers = new int[(int) Math.round(Math.sqrt(1000000000))];
+		//'index' stores the number of prime numbers in less than sqrt(1000000000)
 		index = 0;
-		
+		//generate all prime numbers less than sqrt(1000000000)
 		seive( (int) Math.round(Math.sqrt(1000000000)) );
-		/*
-		 * print the prime numbers below sqrt(1000000000)
-		 * for ( int i = 0; i < index; i++ )  {
-		 * System.out.println(prime_numbers[i]);
-		 * }
-		 * 
-		 */
 		
+		// print the prime numbers below sqrt(1000000000)
+		// for ( int i = 0; i < index; i++ )  {
+		// System.out.println(prime_numbers[i]);
+		// }
+		
+		//for every test case
 		for ( int t = 0; t < T; t++ ) {
 			String[] arr = br.readLine().trim().split(" ");
 			long m = Long.parseLong(arr[0]);
@@ -80,6 +93,12 @@ public class Prime1 {
 		}
 	}
 	
+	/**
+	 * @param number
+	 * 			the number to check if it is a prime
+	 * 
+	 * @return true if the number is prime else false		
+	 */
 	public static boolean check(long number) {
 		if ( number <= 1) {
 			return false;
@@ -93,6 +112,12 @@ public class Prime1 {
 		return true;
 	}
 	
+	/**
+	 * Sieve of Eratosthenes
+	 * 
+	 * @param n
+	 * 		generate all prime-numbers till this limit.
+	 */
 	public static void seive(int n) {
 	    boolean[] prime = new boolean[n+1];
 	    for ( int i = 0; i < n+1; i++ ) {
