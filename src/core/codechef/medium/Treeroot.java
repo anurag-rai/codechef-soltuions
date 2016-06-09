@@ -1,6 +1,9 @@
 package core.codechef.medium;
 
 /**
+ * 
+ * https://www.codechef.com/problems/TREEROOT
+ * 
  * Chef has a binary tree. The binary tree consists of 1 or more nodes.
  * Each node has a unique integer id. Each node has up to 2 children,
  * which are identified by their ids, and each node is the child of at most 1 other node.
@@ -85,8 +88,11 @@ package core.codechef.medium;
  *  
  *  Unfortunately the tests included cases where there were as many as 10^4 possible bitmasks 
  *  for subtrees rooted at a node, and hence such an attempt to merge subtrees would have tried
- *  10^4 * 10^4 possibilities to merge. Such an approach would time out.
- *  
+ *  10^4 * 10^4 possibilities to merge. Such an approach would time out.  
+ */
+
+/**
+ * @author Anurag Rai
  */
 
 import java.io.BufferedReader;

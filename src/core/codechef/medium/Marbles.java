@@ -1,6 +1,9 @@
 package core.codechef.medium;
 
 /**
+ * 
+ * https://www.codechef.com/problems/MARBLES
+ * 
  *  Rohit dreams he is in a shop with an infinite amount of marbles. 
  *  He is allowed to select n marbles. There are marbles of k different 
  *  colors. From each color there are also infinitely many marbles. Rohit 
@@ -38,7 +41,7 @@ package core.codechef.medium;
  * 
  * Notes:
  * 1. The dynamic way of 2D array will run out of memory.
- * 2. Starts and Bars method for combination.
+ * 2. Stars and Bars method for combination.
  * 3. Test with:
  * 	Input:
  * 4
@@ -52,7 +55,10 @@ package core.codechef.medium;
  * 220
  * 1
  * 475020
- * 
+ */
+
+/**
+ * @author Anurag Rai
  */
 
 import java.io.BufferedReader;
