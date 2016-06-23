@@ -1,3 +1,3 @@
 # codechef-solutions
 
-Solutions for codechef.com
+Solutions for medium problems at codechef.com
