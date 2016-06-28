@@ -5,4 +5,4 @@ Solutions for medium problems at codechef.com
 
 | Link | Question | Solution |
 |:------:|:------:|:---------------------|
-| &bull; |  |  |
+| [FLIPCOIN](https://www.codechef.com/problems/FLIPCOIN) |  |  |
